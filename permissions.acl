@@ -1,0 +1,85 @@
+rule default_system_access {
+  description: "All partcipants to be able to access system namespace"
+  participant: "ANY"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW  
+}
+
+rule admin_all_access {
+  description: "All access to admin"
+  participant: "org.hyperledger.composer.system.NetworkAdmin#admin"
+  operation: ALL
+  resource: "org.distro.biz.**"
+  action: ALLOW
+
+}
+
+rule seller_createInvoice_txn_access {
+  description: "sellers should be able to create invoice"
+  participant: "org.distro.biz.Seller"
+  operation: CREATE,READ
+  resource: "org.distro.biz.createInvoice"
+  action: ALLOW
+
+}
+
+rule seller_Invoice_asset_create_access {
+  description: "sellers should be able to create invoice"
+  participant: "org.distro.biz.Seller"
+  operation: CREATE
+  resource: "org.distro.biz.Invoice"
+  transaction: "org.distro.biz.createInvoice"
+  action: ALLOW
+
+}
+
+rule seller_Invoice_asset_read_access {
+  description: "sellers should be able to read invoice created by him/her"
+  participant(p): "org.distro.biz.Seller"
+  operation: READ
+  resource(r): "org.distro.biz.Invoice"
+  condition: (p.getIdentifier() == r.seller.getIdentifier())
+  action: ALLOW
+
+}
+
+rule buyer_acceptInvoice_access {
+  description: "buyers should be able to accept invoice"
+  participant: "org.distro.biz.Buyer"
+  operation: CREATE, READ
+  resource: "org.distro.biz.acceptInvoice"
+  action: ALLOW
+}
+
+rule buyer_settleInvoice_access {
+  description: "buyers should be able to settle invoice"
+  participant: "org.distro.biz.Buyer"
+  operation: CREATE, READ
+  resource: "org.distro.biz.settleInvoice"
+  action: ALLOW
+}
+
+rule buyer_Invoice_asset_access {
+  description: "buyer should be able to update invoice status"
+  participant(p): "org.distro.biz.Buyer"
+  operation: UPDATE
+  resource(r): "org.distro.biz.Invoice"
+  transaction: "org.distro.biz.*"
+  condition: (p.getIdentifier() == r.buyer.getIdentifier())
+  action: ALLOW
+
+}
+
+rule buyer_Invoice_asset_read_access {
+  description: "buyers should be able to read invoice assigned to him/her"
+  participant(p): "org.distro.biz.Buyer"
+  operation: READ
+  resource(r): "org.distro.biz.Invoice"
+  condition: (p.getIdentifier() == r.buyer.getIdentifier())
+  action: ALLOW
+
+}
+
+
+

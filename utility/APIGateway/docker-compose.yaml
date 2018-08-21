@@ -1,0 +1,35 @@
+version: "2.3"
+services: 
+  api_gateway:
+    image: apigateway
+    ports:
+      - 8080:8080
+    volumes:
+      - /home/amenda/Desktop/Hyperledger/distributor-network-2:/cards
+    container_name: api_gateway
+    depends_on: 
+      gateway_mongo:
+        condition: service_healthy
+    networks:   
+      - composer_default
+  gateway_mongo:
+    image: mongo
+    ports:
+      - 37017:27017
+    volumes:
+      - /home/amenda/Desktop/Hyperledger/distributor-network-2/utility/APIGateway/mongo:/data/db
+    container_name: gateway_mongo
+    networks: 
+      - composer_default
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/gateway --quiet
+      interval: 1s
+      timeout: 5s
+      retries: 1
+      start_period: 10s
+networks: 
+  composer_default:
+    external: true
+
+      
+    

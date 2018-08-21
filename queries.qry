@@ -1,0 +1,19 @@
+query selectAllInvoices {
+  description: "Select all Invoices"
+  statement:
+      SELECT org.distro.biz.Invoice
+}
+
+query selectHistoriansWithType{ 
+  description: "Find historian record of given type" 
+  statement: 
+    SELECT org.hyperledger.composer.system.HistorianRecord 
+    WHERE (transactionType == _$typeSearch ) 
+}
+
+query selectInvoiceFromBuyer {
+  description: "Select Invoice of given Buyer"
+  statement:
+    SELECT org.distro.biz.Invoice
+    WHERE (buyer == _$buyerId )
+}
