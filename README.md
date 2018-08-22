@@ -22,11 +22,11 @@ Please visit the [installation instructions](https://hyperledger.github.io/compo
 Also make sure to keep an active internet connection throughout the process.
 
 > nvm v8.11.3
-├── composer-cli@0.19.12
-├── composer-client@0.19.12
-├── composer-rest-server@0.19.12
-├── generator-hyperledger-composer@0.19.12
-├── npm@5.6.0
+  -composer-cli@0.19.12
+  -composer-client@0.19.12
+  -composer-rest-server@0.19.12
+  -generator-hyperledger-composer@0.19.12
+  -npm@5.6.0
 
 > docker version 18.03.1-ce
 > docker-compose version 1.21.2
