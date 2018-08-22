@@ -21,15 +21,16 @@ Sample start-up project to initiate a Fabric project based on Fabric hlfv11. In 
 Please visit the [installation instructions](https://hyperledger.github.io/composer/latest/installing/installing-prereqs.html) to ensure you have the correct prerequisites installed for the development environment. Please use the version of the documentation that matches the version of the software you intend to use to ensure alignment.
 Also make sure to keep an active internet connection throughout the process.
 
-> nvm v8.11.3
-  -composer-cli@0.19.12
-  -composer-client@0.19.12
-  -composer-rest-server@0.19.12
-  -generator-hyperledger-composer@0.19.12
-  -npm@5.6.0
+>  nvm v8.11.3
+  - composer-cli@0.19.12
+  - composer-client@0.19.12
+  - composer-rest-server@0.19.12
+  - generator-hyperledger-composer@0.19.12
+  - npm@5.6.0
 
-> docker version 18.03.1-ce
-> docker-compose version 1.21.2
+>  docker version 18.03.1-ce
+
+>  docker-compose version 1.21.2
 
 ### Getting Started
 
