@@ -32,12 +32,6 @@ enum InvoiceStatus {
   o SETTLED
 }
 
-// enum LoanStatus {
-//   o CREATED
-//   o VERIFIED
-//   o APPROVED
-//   o SETTLED
-// }
 
 asset Invoice identified by id {
   o String id
@@ -52,18 +46,6 @@ asset Invoice identified by id {
 
 }
 
-// asset Loan identified by id {
-//   o String id
-//   o DateTime dueDate
-//   o DateTime createdDate
-//   o Double amount
-//   o Integer duration
-//   o LoanStatus status
-//   --> Invoice invoice
-//   --> Seller seller
-//   --> Buyer buyer
-//   --> Bank bank optional
-// }
 
 event InvoiceCreated {
   --> Invoice invoice
@@ -73,83 +55,6 @@ event InvoiceAccepted {
   --> Invoice invoice
 }
 
-// event LoanCreated {
-//   --> Loan loan
-// }
-
-// event LoanVerified {
-//   --> Loan loan
-// }
-
-// event LoanApplied {
-//   --> Loan loan
-// }
-
-// event LoanApproved {
-//   --> Loan loan
-// }
-
-
-//Seller
-transaction createInvoice {
-  o String id
-  o Double amount
-  o String description1
-  o String description2
-  o DateTime createdDate
-  o DateTime dueDate
-  --> Buyer buyer
-  --> Seller seller
-}
-
-
-
-
-//Buyer
-transaction acceptInvoice {
-  o DateTime date
-  --> Invoice invoice
-}
-
-
-//Buyer
-// transaction createLoan {
-//   o String id
-//   o DateTime dueDate
-//   o DateTime createdDate
-//   o Double amount
-//   o Integer duration
-//   --> Invoice invoice
-//   --> Seller seller
-//   --> Buyer buyer
-// }
-
-//Seller
-// transaction verifyLoan {
-//   o DateTime date
-//   --> Loan loan
-// }
-
-
-//Seller
-// transaction applyLoan {
-//   o DateTime date
-//   --> Loan loan
-//   --> Bank bank
-// }
-
-//Bank
-// transaction approveLoan {
-//   o DateTime date
-//   --> Loan loan
-// }
-
-
-//Seller
-// transaction repayLoan {
-//   o DateTime date
-//   --> Loan loan
-// }
 
 //Buyer
 transaction settleInvoice {
