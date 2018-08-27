@@ -21,10 +21,6 @@ participant Seller extends partner {
 }
 
 
-// participant Bank extends partner {
-
-// }
-
 enum InvoiceStatus {
   o CREATED
   o ACCEPTED
