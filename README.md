@@ -32,6 +32,8 @@ Also make sure to keep an active internet connection throughout the process.
 
 >  docker-compose version 1.21.2
 
+*NOTE :  Tested the Fabric on Ubuntu 16.04 LTS*
+
 ### Getting Started
 
 Download the Project.
