@@ -109,7 +109,7 @@ $ composer card import --file admin@business-network.card
 To verify business network card imported successfully to the network,
 Run
 ```sh
-$ composer network ping --card admin@business-network.card
+$ composer network ping --card admin@business-network
 ```
 
 ##### Generate and Intergrate composer REST API
